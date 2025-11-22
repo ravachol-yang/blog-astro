@@ -143,7 +143,7 @@ export const themeConfig: ThemeConfig = {
     googleAnalyticsID: '',
     // umami analytics
     // https://cloud.umami.is
-    umamiAnalyticsID: '',
+    umamiAnalyticsID: '23bff7ca-0914-4a1c-aa9f-3c46ffc0209c',
     // follow verification
     // https://follow.is/
     follow: {
@@ -166,6 +166,10 @@ export const themeConfig: ThemeConfig = {
       {
         name: 'RSS',
         url: '/atom.xml', // or /rss.xml
+      },
+      {
+        name: 'Umami',
+        url: 'https://views.ravachol.top/share/QDmKmRcGHplwB3Rf',
       },
       {
         name: 'GitHub',
@@ -193,7 +197,7 @@ export const themeConfig: ThemeConfig = {
     // custom umami analytics js
     // for users who deploy umami on their own, or route analytics javascript to a customized domain
     // see https://github.com/umami-software/umami/discussions/1026
-    customUmamiAnalyticsJS: '',
+    customUmamiAnalyticsJS: 'https://views.ravachol.top/script.js',
   },
   // PRELOAD SETTINGS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> END
 }
