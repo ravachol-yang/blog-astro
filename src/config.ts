@@ -169,7 +169,7 @@ export const themeConfig: ThemeConfig = {
       },
       {
         name: 'Umami',
-        url: 'https://views.ravachol.top/share/QDmKmRcGHplwB3Rf',
+        url: 'https://views.ravachol.top/share/OYFTCUAiT0PuFBs3',
       },
       {
         name: 'GitHub',
