@@ -47,7 +47,6 @@
   "devDependencies": {
     "@antfu/eslint-config": "^6.2.0",
     "@astrojs/check": "^0.9.5",
-    "@lokesh.dhakar/quantize": "^1.4.0",
     "@types/markdown-it": "^14.1.2",
     "@types/node": "^24.10.1",
     "@types/sanitize-html": "^2.16.0",
@@ -60,7 +59,6 @@
     "eslint-plugin-astro": "^1.5.0",
     "fast-glob": "^3.3.3",
     "lint-staged": "^16.2.7",
-    "ndarray-pixels": "^5.0.1",
     "playwright": "^1.56.1",
     "simple-git-hooks": "^2.13.1",
     "tsx": "^4.20.6",

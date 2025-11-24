@@ -191,7 +191,7 @@ export const themeConfig: ThemeConfig = {
     // optimize remote images and generate low-quality placeholders
     imageHostURL: '',
     // custom google analytics js
-    // for users who route analytics javascript to a customized domain
+    // for users who proxy tracking scripts to a custom domain
     // see https://gist.github.com/xiaopc/0602f06ca465d76bd9efd3dda9393738
     customGoogleAnalyticsJS: '',
     // custom umami analytics js

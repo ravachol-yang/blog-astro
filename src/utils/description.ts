@@ -24,6 +24,7 @@ const excerptLengths: Record<ExcerptScene, { cjk: number, other: number }> = {
     other: 140,
   },
 }
+
 const htmlEntityMap: Record<string, string> = {
   '&lt;': '<',
   '&gt;': '>',
@@ -78,15 +79,15 @@ export function getPostDescription(
       : post.data.description
   }
 
-  const content = post.body || ''
+  const rawContent = post.body || ''
+  const cleanContent = rawContent
+    .replace(/<!--[\s\S]*?-->/g, '') // Remove HTML comments
+    .replace(/```[\s\S]*?```/g, '') // Remove code blocks
+    .replace(/^\s*#{1,6}\s+\S.*$/gm, '') // Remove Markdown headings
+    .replace(/^\s*::.*$/gm, '') // Remove directive containers
+    .replace(/^\s*>\s*\[!.*\]$/gm, '') // Remove GitHub admonition markers
+    .replace(/\n{2,}/g, '\n\n') // Normalize newlines
 
-  // Remove HTML comments and Markdown headings
-  const cleanedContent = content
-    .replace(/<!--[\s\S]*?-->/g, '')
-    .replace(/^#{1,6}\s+\S.*$/gm, '')
-    .replace(/\n{2,}/g, '\n\n')
-
-  const htmlContent = markdownParser.render(cleanedContent)
-
-  return getExcerpt(htmlContent, lang, scene)
+  const renderedContent = markdownParser.render(cleanContent)
+  return getExcerpt(renderedContent, lang, scene)
 }
