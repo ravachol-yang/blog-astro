@@ -6,13 +6,13 @@ export const themeConfig: ThemeConfig = {
     // site title
     title: '一只八爪鱼',
     // site subtitle
-    subtitle: '啥都看看，啥都玩玩...',
+    subtitle: '不要温和地走进那个良夜...',
     // site description
     description: '',
     // use i18n title/subtitle/description from src/i18n/ui.ts instead of static ones above
     i18nTitle: true, // true | false
     // author name
-    author: '',
+    author: 'octopus',
     // site url
     url: 'https://ravachol.top',
     // base path
