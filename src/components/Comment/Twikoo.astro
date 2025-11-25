@@ -7,7 +7,7 @@ import { twikooLocaleMap } from '@/i18n/config'
 const { envId = '' } = themeConfig.comment?.twikoo ?? {}
 ---
 
-<!-- Class not working for twikoo div -->
+<!-- Class not working on twikoo div -->
 <div class="no-heti mt-16">
   <div id="twikoo" />
 </div>
@@ -30,51 +30,48 @@ const { envId = '' } = themeConfig.comment?.twikoo ?? {}
   }}
 >
 let twikooObserver = null
+let twikooContainer = null
 
 function setupTwikoo() {
-  const currentPath = window.location.pathname
-  const twikooPath = currentPath.replace(
-    new RegExp(`\\/(${allLocales.join('|')})\\/`),
-    '/',
-  )
+  try {
+    const currentPath = window.location.pathname
 
-  const pathWithoutBase = base && currentPath.startsWith(base)
-    ? currentPath.slice(base.length)
-    : currentPath
+    // Remove locale prefix from path
+    const localePattern = new RegExp(`\\/(${allLocales.join('|')})\\/`)
+    const twikooPath = currentPath.replace(localePattern, '/')
+    const pathWithoutBase = base && currentPath.startsWith(base)
+      ? currentPath.slice(base.length)
+      : currentPath
 
-  const lang = Object.keys(twikooLocaleMap).find(code =>
-    pathWithoutBase.startsWith(`/${code}/`),
-  ) ?? defaultLocale
+    // Determine language
+    const matchedLang = Object.keys(twikooLocaleMap).find(code => pathWithoutBase.startsWith(`/${code}/`))
+    const lang = matchedLang ?? defaultLocale
 
-  twikoo.init({
-    envId,
-    el: '#twikoo',
-    // region: 'ap-shanghai', // Specify for Tencent Cloud, omit for Vercel
-    path: twikooPath, // Share comments in different languages
-    lang: twikooLocaleMap[lang],
-  })
+    twikoo.init({
+      envId,
+      el: '#twikoo',
+      // region: 'ap-shanghai', // Specify for Tencent Cloud, omit for Vercel
+      path: twikooPath,
+      lang: twikooLocaleMap[lang],
+    })
+  }
+  catch (error) {
+    console.error('[Twikoo] Failed to initialize:', error)
+  }
 }
 
-function cleanupTwikooObserver() {
-  twikooObserver?.disconnect()
-  twikooObserver = null
-}
-
-// Create an intersection observer to lazy load Twikoo when the container enters viewport
+// Lazy load Twikoo when the container enters viewport
 function lazySetupTwikoo() {
-  // Cleanup Twikoo observer if exists
-  cleanupTwikooObserver()
-
-  const twikooContainer = document.getElementById('twikoo')
+  twikooContainer = document.getElementById('twikoo')
   if (!twikooContainer) {
     return
   }
 
-  const link = document.createElement('link')
-  link.rel = 'stylesheet'
-  link.href = twikooCSS
-
-  if (!document.querySelector(`link[href="${twikooCSS}"]`)) {
+  if (!document.getElementById('twikoo-css')) {
+    const link = document.createElement('link')
+    link.id = 'twikoo-css'
+    link.rel = 'stylesheet'
+    link.href = twikooCSS
     document.head.appendChild(link)
   }
 
@@ -88,7 +85,16 @@ function lazySetupTwikoo() {
   twikooObserver.observe(twikooContainer)
 }
 
+function cleanupTwikoo() {
+  twikooObserver?.disconnect()
+  twikooObserver = null
+
+  if (twikooContainer) {
+    twikooContainer.innerHTML = ''
+    twikooContainer = null
+  }
+}
+
 document.addEventListener('astro:page-load', lazySetupTwikoo)
-document.addEventListener('astro:before-swap', cleanupTwikooObserver)
-lazySetupTwikoo()
+document.addEventListener('astro:before-swap', cleanupTwikoo)
 </script>

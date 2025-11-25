@@ -35,6 +35,8 @@ const {
     giscusLocaleMap,
   }}
 >
+let giscusContainer = null
+
 function getThemeUrl() {
   const isDark = document.documentElement.classList.contains('dark')
   const origin = window.location.origin
@@ -44,8 +46,20 @@ function getThemeUrl() {
     : `${origin}${base}/giscus/theme-light.css`
 }
 
+function updateGiscusTheme() {
+  const giscusWindow = document.querySelector('.giscus-frame')?.contentWindow
+  if (!giscusWindow) {
+    return
+  }
+
+  giscusWindow.postMessage(
+    { giscus: { setConfig: { theme: getThemeUrl() } } },
+    'https://giscus.app',
+  )
+}
+
 function setupGiscus() {
-  const giscusContainer = document.getElementById('giscus')
+  giscusContainer = document.getElementById('giscus')
   if (!giscusContainer) {
     return
   }
@@ -57,9 +71,9 @@ function setupGiscus() {
     ? currentPath.slice(base.length)
     : currentPath
 
-  const lang = Object.keys(giscusLocaleMap).find(code =>
-    pathWithoutBase.startsWith(`/${code}/`),
-  ) ?? defaultLocale
+  // Determine language
+  const matchedLang = Object.keys(giscusLocaleMap).find(code => pathWithoutBase.startsWith(`/${code}/`))
+  const lang = matchedLang ?? defaultLocale
 
   const dataAttributes = {
     repo,
@@ -82,21 +96,19 @@ function setupGiscus() {
   script.src = 'https://giscus.app/client.js'
 
   giscusContainer.appendChild(script)
+
+  document.addEventListener('theme-changed', updateGiscusTheme)
 }
 
-function updateGiscusTheme() {
-  const iframe = document.querySelector('.giscus-frame')
-  if (!iframe || !iframe.contentWindow) {
-    return
-  }
+function cleanupGiscus() {
+  document.removeEventListener('theme-changed', updateGiscusTheme)
 
-  iframe.contentWindow.postMessage(
-    { giscus: { setConfig: { theme: getThemeUrl() } } },
-    'https://giscus.app',
-  )
+  if (giscusContainer) {
+    giscusContainer.innerHTML = ''
+    giscusContainer = null
+  }
 }
 
 document.addEventListener('astro:page-load', setupGiscus)
-document.addEventListener('theme-changed', updateGiscusTheme)
-setupGiscus()
+document.addEventListener('astro:before-swap', cleanupGiscus)
 </script>

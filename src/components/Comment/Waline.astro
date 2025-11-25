@@ -32,61 +32,57 @@ const {
   type="module"
 >
 let walineObserver = null
+let walineInstance = null
 
 async function setupWaline() {
-  const { init } = await import(walineJS)
+  try {
+    const { init } = await import(walineJS)
+    const currentPath = window.location.pathname
 
-  const currentPath = window.location.pathname
-  const walinePath = currentPath.replace(
-    new RegExp(`\\/(${allLocales.join('|')})\\/`),
-    '/',
-  )
+    // Remove locale prefix from path
+    const localePattern = new RegExp(`\\/(${allLocales.join('|')})\\/`)
+    const walinePath = currentPath.replace(localePattern, '/')
+    const pathWithoutBase = base && currentPath.startsWith(base)
+      ? currentPath.slice(base.length)
+      : currentPath
 
-  const pathWithoutBase = base && currentPath.startsWith(base)
-    ? currentPath.slice(base.length)
-    : currentPath
+    // Determine language
+    const matchedLang = Object.keys(walineLocaleMap).find(code => pathWithoutBase.startsWith(`/${code}/`))
+    const lang = matchedLang ?? defaultLocale
 
-  const lang = Object.keys(walineLocaleMap).find(code =>
-    pathWithoutBase.startsWith(`/${code}/`),
-  ) ?? defaultLocale
-
-  init({
-    el: '#waline',
-    serverURL,
-    path: walinePath, // Share comments in different languages
-    lang: walineLocaleMap[lang],
-    emoji,
-    dark: 'html.dark',
-    requiredMeta: ['nick', 'mail'],
-    highlighter: false,
-    texRenderer: false,
-    imageUploader,
-    search,
-    noCopyright: true,
-    reaction: [],
-  })
+    walineInstance = init({
+      el: '#waline',
+      serverURL,
+      path: walinePath,
+      lang: walineLocaleMap[lang],
+      emoji,
+      dark: 'html.dark',
+      requiredMeta: ['nick', 'mail'],
+      highlighter: false,
+      texRenderer: false,
+      imageUploader,
+      search,
+      noCopyright: true,
+      reaction: [],
+    })
+  }
+  catch (error) {
+    console.error('[Waline] Failed to initialize:', error)
+  }
 }
 
-function cleanupWalineObserver() {
-  walineObserver?.disconnect()
-  walineObserver = null
-}
-
-// Create an intersection observer to lazy load Waline when the container enters viewport
+// Lazy load Waline when the container enters viewport
 function lazySetupWaline() {
-  // Cleanup Waline observer if exists
-  cleanupWalineObserver()
-
   const walineContainer = document.getElementById('waline')
   if (!walineContainer) {
     return
   }
 
-  const link = document.createElement('link')
-  link.rel = 'stylesheet'
-  link.href = walineCSS
-
-  if (!document.querySelector(`link[href="${walineCSS}"]`)) {
+  if (!document.getElementById('waline-css')) {
+    const link = document.createElement('link')
+    link.id = 'waline-css'
+    link.rel = 'stylesheet'
+    link.href = walineCSS
     document.head.appendChild(link)
   }
 
@@ -100,9 +96,15 @@ function lazySetupWaline() {
   walineObserver.observe(walineContainer)
 }
 
+function cleanupWaline() {
+  walineObserver?.disconnect()
+  walineObserver = null
+  walineInstance?.destroy?.()
+  walineInstance = null
+}
+
 document.addEventListener('astro:page-load', lazySetupWaline)
-document.addEventListener('astro:before-swap', cleanupWalineObserver)
-lazySetupWaline()
+document.addEventListener('astro:before-swap', cleanupWaline)
 </script>
 
 <!-- Official CSS Variables >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
