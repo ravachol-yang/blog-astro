@@ -9,61 +9,65 @@ const {
   emoji = [],
   search = false,
   imageUploader = false,
-} = themeConfig.comment?.waline ?? {}
+} = themeConfig.comment.waline ?? {}
+
+// Remove locale prefix from path
+const currentPath = Astro.url.pathname
+const localePattern = new RegExp(`\\/(${allLocales.join('|')})\\/`)
+const walinePath = currentPath.replace(localePattern, '/')
+
+// Determine language
+const pathWithoutBase = base && currentPath.startsWith(base)
+  ? currentPath.slice(base.length)
+  : currentPath
+const matchedLang = Object.keys(walineLocaleMap).find(code => pathWithoutBase.startsWith(`/${code}/`))
+const lang = (matchedLang ?? defaultLocale) as keyof typeof walineLocaleMap
+
+const walineConfig = {
+  serverURL,
+  path: walinePath,
+  lang: walineLocaleMap[lang],
+  emoji,
+  search,
+  imageUploader,
+  walineJS,
+  walineCSS,
+}
 ---
 
-<div id="waline" class="no-heti mt-16" />
+<div
+  id="waline"
+  class="no-heti mt-16"
+  data-config={JSON.stringify(walineConfig)}
+/>
 
 <!-- Waline Script >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
-<script
-  is:inline
-  define:vars={{
-    base,
-    defaultLocale,
-    allLocales,
-    serverURL,
-    emoji,
-    search,
-    imageUploader,
-    walineLocaleMap,
-    walineJS,
-    walineCSS,
-  }}
-  type="module"
->
-let walineObserver = null
-let walineInstance = null
+<script>
+import type { WalineInstance } from '@waline/client'
+
+let walineObserver: IntersectionObserver | null = null
+let walineInstance: WalineInstance | null = null
 
 async function setupWaline() {
+  const walineContainer = document.getElementById('waline')
+  if (!walineContainer || !walineContainer.dataset.config) {
+    return
+  }
+
   try {
-    const { init } = await import(walineJS)
-    const currentPath = window.location.pathname
-
-    // Remove locale prefix from path
-    const localePattern = new RegExp(`\\/(${allLocales.join('|')})\\/`)
-    const walinePath = currentPath.replace(localePattern, '/')
-    const pathWithoutBase = base && currentPath.startsWith(base)
-      ? currentPath.slice(base.length)
-      : currentPath
-
-    // Determine language
-    const matchedLang = Object.keys(walineLocaleMap).find(code => pathWithoutBase.startsWith(`/${code}/`))
-    const lang = matchedLang ?? defaultLocale
+    const config = JSON.parse(walineContainer.dataset.config)
+    const { walineJS, walineCSS, ...restConfig } = config
+    const { init } = await import(/* @vite-ignore */ walineJS)
 
     walineInstance = init({
       el: '#waline',
-      serverURL,
-      path: walinePath,
-      lang: walineLocaleMap[lang],
-      emoji,
       dark: 'html.dark',
       requiredMeta: ['nick', 'mail'],
       highlighter: false,
       texRenderer: false,
-      imageUploader,
-      search,
       noCopyright: true,
       reaction: [],
+      ...restConfig,
     })
   }
   catch (error) {
@@ -74,9 +78,12 @@ async function setupWaline() {
 // Lazy load Waline when the container enters viewport
 function lazySetupWaline() {
   const walineContainer = document.getElementById('waline')
-  if (!walineContainer) {
+  if (!walineContainer || !walineContainer.dataset.config) {
     return
   }
+
+  const config = JSON.parse(walineContainer.dataset.config)
+  const { walineCSS } = config
 
   if (!document.getElementById('waline-css')) {
     const link = document.createElement('link')
@@ -90,6 +97,7 @@ function lazySetupWaline() {
     if (entries.some(entry => entry.isIntersecting)) {
       setupWaline()
       walineObserver?.disconnect()
+      walineObserver = null
     }
   }, { rootMargin: '500px' })
 

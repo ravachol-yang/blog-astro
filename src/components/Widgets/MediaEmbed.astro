@@ -3,6 +3,7 @@ import 'lite-youtube-embed/src/lite-yt-embed.css'
 ---
 
 <script>
+// Load YouTube embed script
 async function setupYouTubeEmbeds() {
   const youtube = document.querySelectorAll('lite-youtube')
   if (youtube.length === 0) {
@@ -18,6 +19,7 @@ async function setupYouTubeEmbeds() {
   }
 }
 
+// Initialize Twitter widgets
 async function setupTwitterEmbeds() {
   const tweets = document.querySelectorAll('.twitter-tweet')
   if (tweets.length === 0) {
@@ -28,18 +30,21 @@ async function setupTwitterEmbeds() {
     tweet.setAttribute('data-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light')
   })
 
+  // Inject Twitter script
   const script = document.createElement('script')
   script.src = 'https://platform.twitter.com/widgets.js'
   script.async = true
   document.head.appendChild(script)
 }
 
+// Initialize Mermaid diagrams
 async function setupMermaidEmbeds() {
   const mermaids = document.querySelectorAll('pre.mermaid')
   if (mermaids.length === 0) {
     return
   }
 
+  // Store original code for re-rendering
   mermaids.forEach((element) => {
     const mermaid = element as HTMLElement
     if (!mermaid.dataset.mermaidCode) {
@@ -47,6 +52,7 @@ async function setupMermaidEmbeds() {
     }
   })
 
+  // Load and run Mermaid
   try {
     const { default: mermaid } = await import('mermaid')
     mermaid.initialize({
@@ -60,6 +66,7 @@ async function setupMermaidEmbeds() {
   }
 }
 
+// Initialize all media embeds
 async function setupMediaEmbeds() {
   await Promise.allSettled([
     setupYouTubeEmbeds(),
@@ -68,6 +75,7 @@ async function setupMediaEmbeds() {
   ])
 }
 
+// Re-render Mermaid diagrams on theme change
 function updateMermaidTheme() {
   const mermaids = document.querySelectorAll('pre.mermaid[data-mermaid-code]')
   if (mermaids.length === 0) {
@@ -82,6 +90,7 @@ function updateMermaidTheme() {
       theme: isDark ? 'dark' : 'default',
     })
 
+    // Reset content and re-run Mermaid
     mermaids.forEach((element) => {
       const mermaid = element as HTMLElement
       mermaid.innerHTML = mermaid.dataset.mermaidCode ?? ''
@@ -94,23 +103,25 @@ function updateMermaidTheme() {
   })
 }
 
+// Handle horizontal scrolling for gallery
 function handleGalleryWheel(e: WheelEvent) {
   const container = (e.target as Element)?.closest('.gallery-container') as HTMLElement
   if (!container) {
     return
   }
 
+  // Convert vertical scroll to horizontal
   const previousScrollLeft = container.scrollLeft
   container.scrollLeft += e.deltaY
   if (container.scrollLeft === previousScrollLeft) {
     return
   }
 
+  // Prevent default scroll only if horizontal scroll occurred
   e.preventDefault()
 }
 
 document.addEventListener('astro:page-load', setupMediaEmbeds)
 document.addEventListener('theme-changed', updateMermaidTheme)
 document.addEventListener('wheel', handleGalleryWheel, { passive: false })
-setupMediaEmbeds()
 </script>

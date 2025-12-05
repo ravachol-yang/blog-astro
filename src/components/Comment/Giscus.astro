@@ -12,32 +12,44 @@ const {
   reactionsEnabled = '1',
   emitMetadata = '0',
   inputPosition = 'bottom',
-} = themeConfig.comment?.giscus ?? {}
+} = themeConfig.comment.giscus ?? {}
+
+
+const currentPath = Astro.url.pathname
+
+// Determine language
+const pathWithoutBase = base && currentPath.startsWith(base)
+  ? currentPath.slice(base.length)
+  : currentPath
+const matchedLang = Object.keys(giscusLocaleMap).find(code => pathWithoutBase.startsWith(`/${code}/`))
+const lang = (matchedLang ?? defaultLocale) as keyof typeof giscusLocaleMap
+
+const giscusConfig = {
+  base,
+  repo,
+  repoId,
+  category,
+  categoryId,
+  mapping,
+  strict,
+  reactionsEnabled,
+  emitMetadata,
+  inputPosition,
+  lang: giscusLocaleMap[lang],
+}
 ---
 
-<div id="giscus" class="giscus mt-16" />
+<div
+  id="giscus"
+  class="giscus mt-16"
+  data-config={JSON.stringify(giscusConfig)}
+/>
 
 <!-- Giscus Script >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
-<script
-  is:inline
-  define:vars={{
-    base,
-    defaultLocale,
-    repo,
-    repoId,
-    category,
-    categoryId,
-    mapping,
-    strict,
-    reactionsEnabled,
-    emitMetadata,
-    inputPosition,
-    giscusLocaleMap,
-  }}
->
-let giscusContainer = null
+<script>
+let giscusContainer: HTMLElement | null = null
 
-function getThemeUrl() {
+function getThemeUrl(base: string) {
   const isDark = document.documentElement.classList.contains('dark')
   const origin = window.location.origin
 
@@ -47,62 +59,58 @@ function getThemeUrl() {
 }
 
 function updateGiscusTheme() {
-  const giscusWindow = document.querySelector('.giscus-frame')?.contentWindow
+  if (!giscusContainer || !giscusContainer.dataset.config) {
+    return
+  }
+
+  const giscusWindow = giscusContainer.querySelector<HTMLIFrameElement>('iframe.giscus-frame')?.contentWindow
   if (!giscusWindow) {
     return
   }
 
-  giscusWindow.postMessage(
-    { giscus: { setConfig: { theme: getThemeUrl() } } },
-    'https://giscus.app',
-  )
+  try {
+    const { base } = JSON.parse(giscusContainer.dataset.config)
+    giscusWindow.postMessage(
+      { giscus: { setConfig: { theme: getThemeUrl(base) } } },
+      'https://giscus.app',
+    )
+  }
+  catch (error) {
+    console.error('[Giscus] Failed to update theme:', error)
+  }
 }
 
 function setupGiscus() {
   giscusContainer = document.getElementById('giscus')
-  if (!giscusContainer) {
+  if (!giscusContainer || !giscusContainer.dataset.config) {
     return
   }
 
   giscusContainer.innerHTML = ''
 
-  const currentPath = window.location.pathname
-  const pathWithoutBase = base && currentPath.startsWith(base)
-    ? currentPath.slice(base.length)
-    : currentPath
+  try {
+    const config = JSON.parse(giscusContainer.dataset.config)
+    const { base, category, ...restConfig } = config
 
-  // Determine language
-  const matchedLang = Object.keys(giscusLocaleMap).find(code => pathWithoutBase.startsWith(`/${code}/`))
-  const lang = matchedLang ?? defaultLocale
+    const dataAttributes: Record<string, string> = {
+      ...restConfig,
+      ...(category && { category }),
+      theme: getThemeUrl(base),
+    }
 
-  const dataAttributes = {
-    repo,
-    repoId,
-    ...(category && { category }),
-    categoryId,
-    mapping,
-    strict,
-    reactionsEnabled,
-    emitMetadata,
-    inputPosition,
-    theme: getThemeUrl(),
-    lang: giscusLocaleMap[lang],
+    const script = document.createElement('script')
+    script.crossOrigin = 'anonymous'
+    script.async = true
+    Object.assign(script.dataset, dataAttributes)
+    script.src = 'https://giscus.app/client.js'
+    giscusContainer.appendChild(script)
   }
-
-  const script = document.createElement('script')
-  script.crossOrigin = 'anonymous'
-  script.async = true
-  Object.assign(script.dataset, dataAttributes)
-  script.src = 'https://giscus.app/client.js'
-
-  giscusContainer.appendChild(script)
-
-  document.addEventListener('theme-changed', updateGiscusTheme)
+  catch (error) {
+    console.error('[Giscus] Failed to initialize:', error)
+  }
 }
 
 function cleanupGiscus() {
-  document.removeEventListener('theme-changed', updateGiscusTheme)
-
   if (giscusContainer) {
     giscusContainer.innerHTML = ''
     giscusContainer = null
@@ -111,4 +119,5 @@ function cleanupGiscus() {
 
 document.addEventListener('astro:page-load', setupGiscus)
 document.addEventListener('astro:before-swap', cleanupGiscus)
+document.addEventListener('theme-changed', updateGiscusTheme)
 </script>

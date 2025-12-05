@@ -117,7 +117,7 @@ function handleThemeToggleClick(e) {
 }
 
 // Bind click event to the button
-document.addEventListener('click', handleThemeToggleClick, { passive: true })
+document.addEventListener('click', handleThemeToggleClick)
 
 // Listen to system theme changes in real time
 window.matchMedia('(prefers-color-scheme: dark)')
