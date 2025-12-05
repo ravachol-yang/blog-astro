@@ -15,11 +15,7 @@ importers:
     dependencies:
       '@astrojs/mdx':
         specifier: ^4.3.12
-<<<<<<< HEAD
-        version: 4.3.12(astro@5.16.0(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))
-=======
-        version: 4.3.12(astro@5.16.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2))
->>>>>>> upstream/master
+        version: 4.3.12(astro@5.16.4(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2))
       '@astrojs/partytown':
         specifier: ^2.1.4
         version: 2.1.4
@@ -28,30 +24,19 @@ importers:
         version: 3.6.0
       '@astrojs/vercel':
         specifier: ^9.0.1
-        version: 9.0.1(astro@5.16.0(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))(rollup@4.53.3)(vue@3.5.25(typescript@5.9.3))
+        version: 9.0.1(astro@5.16.4(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2))(rollup@4.53.3)(vue@3.5.25(typescript@5.9.3))
       '@waline/client':
         specifier: ^3.8.0
         version: 3.8.0(typescript@5.9.3)
       astro:
-<<<<<<< HEAD
-        specifier: ^5.16.0
-        version: 5.16.0(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
-      astro-compress:
-        specifier: ^2.3.8
-        version: 2.3.8(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
-      astro-og-canvas:
-        specifier: ^0.7.2
-        version: 0.7.2(astro@5.16.0(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))
-=======
         specifier: ^5.16.4
-        version: 5.16.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
+        version: 5.16.4(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
       astro-compress:
         specifier: ^2.3.8
-        version: 2.3.8(@types/node@24.10.1)(jiti@2.6.1)(rollup@4.53.3)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
+        version: 2.3.8(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.3)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
       astro-og-canvas:
         specifier: ^0.7.2
-        version: 0.7.2(astro@5.16.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2))
->>>>>>> upstream/master
+        version: 0.7.2(astro@5.16.4(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2))
       canvaskit-wasm:
         specifier: ^0.40.0
         version: 0.40.0
@@ -1587,7 +1572,6 @@ packages:
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0 || ^4.0.0 || ^5.0.0-0 || ^6.0.0-0 || ^7.0.0-0
 
-<<<<<<< HEAD
   '@vercel/analytics@1.5.0':
     resolution: {integrity: sha512-MYsBzfPki4gthY5HnYN7jgInhAZ7Ac1cYDoRWFomwGHWEX7odTEzbtg9kf/QSo7XEsEAqlQugA6gJ2WS2DEa3g==}
     peerDependencies:
@@ -1635,12 +1619,8 @@ packages:
   '@vercel/routing-utils@5.3.0':
     resolution: {integrity: sha512-gKsPSGc/hBMSHiAXTjTcbSa9egy7wCogrLctx8bJUS21w2OppWzrd5ZqUMqvnrfdKzLMpGIJ2bZMxBQ9xjGkaA==}
 
-  '@vitest/eslint-plugin@1.4.4':
-    resolution: {integrity: sha512-oSOGG1DhYl2N3hLiEOJpbkv51POiL52rtZF2Q2NCpIXk3aOCsKqgLlk1/oUdZ2FWnl6hNP3ckWxAVYSrk4SN/A==}
-=======
   '@vitest/eslint-plugin@1.5.1':
     resolution: {integrity: sha512-t49CNERe/YadnLn90NTTKJLKzs99xBkXElcoUTLodG6j1G0Q7jy3mXqqiHd3N5aryG2KkgOg4UAoGwgwSrZqKQ==}
->>>>>>> upstream/master
     engines: {node: '>=18'}
     peerDependencies:
       eslint: '>=8.57.0'
@@ -2424,16 +2404,11 @@ packages:
   duplexer@0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
 
-<<<<<<< HEAD
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
 
-  electron-to-chromium@1.5.259:
-    resolution: {integrity: sha512-I+oLXgpEJzD6Cwuwt1gYjxsDmu/S/Kd41mmLA3O+/uH2pFRO/DvOjUyGozL8j3KeLV6WyZ7ssPwELMsXCcsJAQ==}
-=======
   electron-to-chromium@1.5.265:
     resolution: {integrity: sha512-B7IkLR1/AE+9jR2LtVF/1/6PFhY5TlnEHnlrKmGk7PvkJibg5jr+mLXLLzq3QYl6PA1T/vLDthQPqIPAlS/PPA==}
->>>>>>> upstream/master
 
   emmet@2.4.11:
     resolution: {integrity: sha512-23QPJB3moh/U9sT4rQzGgeyyGIrcM+GH5uVYg2C6wZIxAIJq7Ng3QLT79tl8FUwDXhyq9SusfknOrofAKqvgyQ==}
@@ -3645,16 +3620,11 @@ packages:
     resolution: {integrity: sha512-MyIV3ZA/PmyBN/ud8vV9XzwTrNtR4jFrObymZYnZqMmW0zA8Z17vnT0rBgFE/TlohB+YCHqXMgZzb3Csp49vqg==}
     engines: {node: '>=14.16'}
 
-<<<<<<< HEAD
   package-json-from-dist@1.0.1:
     resolution: {integrity: sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==}
 
-  package-manager-detector@1.5.0:
-    resolution: {integrity: sha512-uBj69dVlYe/+wxj8JOpr97XfsxH/eumMt6HqjNTmJDf/6NO9s+0uxeOneIz3AsPt2m6y9PqzDzd3ATcU17MNfw==}
-=======
   package-manager-detector@1.6.0:
     resolution: {integrity: sha512-61A5ThoTiDG/C8s8UMZwSorAGwMJ0ERVGj2OjoW5pAalsNOg15+iQiPzrLJ4jhZ1HJzmC2PIHT2oEiH3R5fzNA==}
->>>>>>> upstream/master
 
   pako@0.2.9:
     resolution: {integrity: sha512-NUcwaKxUxWrZLpDG+z/xZaCgQITkA/Dv4V/T6bw7VON6l1Xz/VnrBqrYjZQ12TamKHzITTfOEIYUj48y2KXImA==}
@@ -4655,17 +4625,12 @@ packages:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}
     engines: {node: '>=10'}
 
-<<<<<<< HEAD
   yallist@5.0.0:
     resolution: {integrity: sha512-YgvUTfwqyc7UXVMrB+SImsVYSmTS8X/tSrtdNZMImM+n7+QTriRXyXim0mBrTXNeqzVF0KWGgHPeiyViFFrNDw==}
     engines: {node: '>=18'}
 
-  yaml-eslint-parser@1.3.0:
-    resolution: {integrity: sha512-E/+VitOorXSLiAqtTd7Yqax0/pAS3xaYMP+AUUJGOK1OZG3rhcj9fcJOM5HJ2VrP1FrStVCWr1muTfQCdj4tAA==}
-=======
   yaml-eslint-parser@1.3.2:
     resolution: {integrity: sha512-odxVsHAkZYYglR30aPYRY4nUGJnoJ2y1ww2HDvZALo0BDETv9kWbi16J52eHs+PWRNmF4ub6nZqfVOeesOvntg==}
->>>>>>> upstream/master
     engines: {node: ^14.17.0 || >=16.0.0}
 
   yaml-language-server@1.19.2:
@@ -4846,20 +4811,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-<<<<<<< HEAD
-  '@astrojs/mdx@4.3.12(astro@5.16.0(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))':
-=======
-  '@astrojs/mdx@4.3.12(astro@5.16.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2))':
->>>>>>> upstream/master
+  '@astrojs/mdx@4.3.12(astro@5.16.4(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2))':
     dependencies:
       '@astrojs/markdown-remark': 6.3.9
       '@mdx-js/mdx': 3.1.1
       acorn: 8.15.0
-<<<<<<< HEAD
-      astro: 5.16.0(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
-=======
-      astro: 5.16.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
->>>>>>> upstream/master
+      astro: 5.16.4(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
       es-module-lexer: 1.7.0
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.5
@@ -4900,14 +4857,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/vercel@9.0.1(astro@5.16.0(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))(rollup@4.53.3)(vue@3.5.25(typescript@5.9.3))':
+  '@astrojs/vercel@9.0.1(astro@5.16.4(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2))(rollup@4.53.3)(vue@3.5.25(typescript@5.9.3))':
     dependencies:
       '@astrojs/internal-helpers': 0.7.5
       '@vercel/analytics': 1.5.0(vue@3.5.25(typescript@5.9.3))
       '@vercel/functions': 2.2.13
       '@vercel/nft': 0.30.3(rollup@4.53.3)
       '@vercel/routing-utils': 5.3.0
-      astro: 5.16.0(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
+      astro: 5.16.4(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
       esbuild: 0.25.12
       tinyglobby: 0.2.15
     transitivePeerDependencies:
@@ -6178,7 +6135,6 @@ snapshots:
       unplugin-utils: 0.3.1
       vite: 6.4.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.29.3)(terser@5.39.0)(tsx@4.21.0)(yaml@2.8.2)
 
-<<<<<<< HEAD
   '@vercel/analytics@1.5.0(vue@3.5.25(typescript@5.9.3))':
     optionalDependencies:
       vue: 3.5.25(typescript@5.9.3)
@@ -6218,10 +6174,7 @@ snapshots:
     optionalDependencies:
       ajv: 6.12.6
 
-  '@vitest/eslint-plugin@1.4.4(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)':
-=======
   '@vitest/eslint-plugin@1.5.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)':
->>>>>>> upstream/master
     dependencies:
       '@typescript-eslint/scope-manager': 8.48.1
       '@typescript-eslint/utils': 8.48.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
@@ -6433,20 +6386,12 @@ snapshots:
 
   astring@1.9.0: {}
 
-<<<<<<< HEAD
-  astro-compress@2.3.8(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.3)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1):
-=======
-  astro-compress@2.3.8(@types/node@24.10.1)(jiti@2.6.1)(rollup@4.53.3)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2):
->>>>>>> upstream/master
+  astro-compress@2.3.8(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(rollup@4.53.3)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2):
     dependencies:
       '@playform/pipe': 0.1.3
       '@types/csso': 5.0.4
       '@types/html-minifier-terser': 7.0.2
-<<<<<<< HEAD
-      astro: 5.16.0(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
-=======
-      astro: 5.16.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
->>>>>>> upstream/master
+      astro: 5.16.4(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
       commander: 13.1.0
       csso: 5.0.5
       deepmerge-ts: 7.1.5
@@ -6507,24 +6452,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-<<<<<<< HEAD
-  astro-og-canvas@0.7.2(astro@5.16.0(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)):
+  astro-og-canvas@0.7.2(astro@5.16.4(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)):
     dependencies:
-      astro: 5.16.0(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
-=======
-  astro-og-canvas@0.7.2(astro@5.16.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)):
-    dependencies:
-      astro: 5.16.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
->>>>>>> upstream/master
+      astro: 5.16.4(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
       canvaskit-wasm: 0.40.0
       deterministic-object-hash: 2.0.2
       entities: 7.0.0
 
-<<<<<<< HEAD
-  astro@5.16.0(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1):
-=======
-  astro@5.16.4(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2):
->>>>>>> upstream/master
+  astro@5.16.4(@types/node@24.10.1)(@vercel/functions@2.2.13)(jiti@2.6.1)(lightningcss@1.29.3)(rollup@4.53.3)(terser@5.39.0)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.5
@@ -7187,13 +7122,9 @@ snapshots:
 
   duplexer@0.1.2: {}
 
-<<<<<<< HEAD
   eastasianwidth@0.2.0: {}
 
-  electron-to-chromium@1.5.259: {}
-=======
   electron-to-chromium@1.5.265: {}
->>>>>>> upstream/master
 
   emmet@2.4.11:
     dependencies:
@@ -8920,13 +8851,9 @@ snapshots:
 
   p-timeout@6.1.4: {}
 
-<<<<<<< HEAD
   package-json-from-dist@1.0.1: {}
 
-  package-manager-detector@1.5.0: {}
-=======
   package-manager-detector@1.6.0: {}
->>>>>>> upstream/master
 
   pako@0.2.9: {}
 
@@ -10054,13 +9981,9 @@ snapshots:
 
   y18n@5.0.8: {}
 
-<<<<<<< HEAD
   yallist@5.0.0: {}
 
-  yaml-eslint-parser@1.3.0:
-=======
   yaml-eslint-parser@1.3.2:
->>>>>>> upstream/master
     dependencies:
       eslint-visitor-keys: 3.4.3
       yaml: 2.8.2
