@@ -117,13 +117,4 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-
-  // For local development
-  server: {
-    headers: {
-      'Access-Control-Allow-Origin': 'https://giscus.app',
-    },
-  },
-
-  adapter: vercel(),
 })

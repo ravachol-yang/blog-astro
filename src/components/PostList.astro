@@ -37,7 +37,7 @@ const isHome = isHomePage(Astro.url.pathname)
             ]}
             href={getPostPath(slug, lang)}
             transition:name={`post-${slug}${lang ? `-${lang}` : ''}`}
-            data-disable-theme-transition
+            data-disable-theme-toggle-transition
           >
             {post.data.title}
           </a>
@@ -55,7 +55,7 @@ const isHome = isHomePage(Astro.url.pathname)
         <div
           class="py-0.8 text-3.5 font-time lg:hidden"
           transition:name={`time-${slug}${lang ? `-${lang}` : ''}`}
-          data-disable-theme-transition
+          data-disable-theme-toggle-transition
         >
           <PostDate
             date={post.data.published}

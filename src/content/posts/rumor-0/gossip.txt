@@ -1,0 +1,8 @@
+public void gossip(ServerLevel pServerLevel, Villager pTarget, long pGameTime) {
+      if ((pGameTime < this.lastGossipTime || pGameTime >= this.lastGossipTime + 1200L) && (pGameTime < pTarget.lastGossipTime || pGameTime >= pTarget.lastGossipTime + 1200L)) {
+         this.gossips.transferFrom(pTarget.gossips, this.random, 10);
+         this.lastGossipTime = pGameTime;
+         pTarget.lastGossipTime = pGameTime;
+         this.spawnGolemIfNeeded(pServerLevel, pGameTime, 5);
+      }
+}
