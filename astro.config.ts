@@ -2,6 +2,7 @@ import mdx from '@astrojs/mdx'
 import partytown from '@astrojs/partytown'
 import sitemap from '@astrojs/sitemap'
 import Compress from 'astro-compress'
+import { unified } from '@astrojs/markdown-remark'
 import { defineConfig } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
 import rehypeMermaid from 'rehype-mermaid'
@@ -68,22 +69,24 @@ export default defineConfig({
   ],
 
   markdown: {
-    remarkPlugins: [
-      remarkDirective,
-      remarkMath,
-      remarkContainerDirectives,
-      remarkLeafDirectives,
-      remarkReadingTime,
-    ],
-    rehypePlugins: [
-      rehypeKatex,
-      [rehypeMermaid, { strategy: 'pre-mermaid' }],
-      rehypeSlug,
-      rehypeHeadingAnchor,
-      rehypeImageProcessor,
-      rehypeExternalLinks,
-      rehypeCodeCopyButton,
-    ],
+    processor: unified({
+      remarkPlugins: [
+        remarkDirective,
+        remarkMath,
+        remarkContainerDirectives,
+        remarkLeafDirectives,
+        remarkReadingTime,
+      ],
+      rehypePlugins: [
+        rehypeKatex,
+        [rehypeMermaid, { strategy: 'pre-mermaid' }],
+        rehypeSlug,
+        rehypeHeadingAnchor,
+        rehypeImageProcessor,
+        rehypeExternalLinks,
+        rehypeCodeCopyButton,
+      ],
+    }),
     syntaxHighlight: {
       type: 'shiki',
       excludeLangs: ['mermaid'],
