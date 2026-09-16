@@ -6,9 +6,9 @@ export const themeConfig: ThemeConfig = {
     // site title
     title: '一只八爪鱼',
     // site subtitle
-    subtitle: '不要温和地走进那个良夜...',
+    subtitle: 'Call me Ishmael...',
     // site description
-    description: '',
+    description: '神秘的杂食动物（），可能记录一点技术，读书，旅行，方言，民俗之类的',
     // use i18n title/subtitle/description from src/i18n/ui.ts instead of static ones above
     i18nTitle: true, // true | false
     // author name

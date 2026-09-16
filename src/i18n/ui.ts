@@ -94,8 +94,8 @@ export const ui: Record<Language, Translation> = {
   },
   'zh': {
     title: '一只八爪鱼',
-    subtitle: '不要温和地走进那个良夜...',
-    description: '神秘的杂食动物（）',
+    subtitle: 'Call me Ishmael...',
+    description: '神秘的杂食动物（），可能记录一点技术，读书，旅行，方言，民俗之类的',
     posts: '文章',
     tags: '标签',
     about: '关于',
