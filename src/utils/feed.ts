@@ -14,7 +14,7 @@ import { getPostDescription } from '@/utils/description'
 
 const markdownParser = new MarkdownIt()
 const { title, description, i18nTitle, url, author } = themeConfig.site
-const { follow } = themeConfig.seo ?? {}
+const { folo } = themeConfig.seo ?? {}
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // Dynamically import all images from /src/content/posts/_images
@@ -193,13 +193,13 @@ export async function generateFeed({ lang }: { lang?: Language } = {}) {
     })
   }
 
-  // Add follow verification if available
-  if (follow?.feedID && follow?.userID) {
+  // Add folo verification if available
+  if (folo?.feedID && folo?.userID) {
     feed.addExtension({
-      name: 'follow_challenge',
+      name: 'folo_challenge',
       objects: {
-        feedId: follow.feedID,
-        userId: follow.userID,
+        feedId: folo.feedID,
+        userId: folo.userID,
       },
     })
   }

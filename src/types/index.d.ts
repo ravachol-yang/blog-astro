@@ -75,7 +75,7 @@ export interface ThemeConfig {
     }
     googleAnalyticsID?: string
     umamiAnalyticsID?: string
-    follow?: {
+    folo?: {
       feedID?: string
       userID?: string
     }

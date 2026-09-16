@@ -26,7 +26,7 @@ const postsByYear = await getPostsByYear(currentLang)
   )}
 
   <!-- Regular Posts -->
-  {[...postsByYear.entries()].map(([_year, posts]) => (
+  {Array.from(postsByYear.entries(), ([_year, posts]) => (
     <section class="mb-7.5">
       <div class="uno-decorative-line" />
       <PostList posts={posts} lang={currentLang} />

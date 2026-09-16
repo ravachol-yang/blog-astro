@@ -39,10 +39,8 @@ const supportedLangs = await getTagSupportedLangs(tag)
   />
 
   <!-- Posts List -->
-  <div class="mt-10.5">
-    <PostList
-      posts={posts}
-      lang={currentLang}
-    />
-  </div>
+  <PostList
+    posts={posts}
+    lang={currentLang}
+  />
 </Layout>
