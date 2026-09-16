@@ -6,6 +6,33 @@ html {
   text-autospace: normal;
 }
 
+body::before {
+  content: '';
+  --at-apply: 'pointer-events-none fixed inset-x-0 top-0 z-9999 h-0.5 bg-primary';
+}
+
+.post-title-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.post-title-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -0.3em;
+  width: 100%;
+  height: 2px;
+  --at-apply: 'bg-primary';
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.post-title-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
 /* Fix Flash Issue On iOS */
 body {
   backface-visibility: hidden;

@@ -41,15 +41,17 @@ export const themeConfig: ThemeConfig = {
     //   highlight: 'oklch(0.93 0.195089 103.2532 / 0.2)',
     // },
     light: {
-      primary: 'oklch(0.24 0.0172 280.05)',
-      secondary: 'oklch(0.40 0.0172 280.05)',
-      background: 'oklch(0.98 0.0172 280.05)',
+      primary: 'oklch(0.5104 0.1327 29.65)',
+      secondary: 'oklch(0.40 0.03 211.86)',
+      background: 'oklch(0.997 0 0)',
+      secondaryBackgroud: 'oklch(0.97 0.0123 91.52)',
       highlight: 'oklch(0.93 0.195089 103.2532 / 0.5)',
     },
     dark: {
-      primary: 'oklch(0.92 0.0172 280.05)',
-      secondary: 'oklch(0.79 0.0172 280.05)',
-      background: 'oklch(0.24 0.0172 280.05)',
+      primary: 'oklch(0.92 0.0015 106.47)',
+      secondary: 'oklch(0.79 0.0015 106.47)',
+      background: 'oklch(0.24 0.0039 106.47)',
+      secondaryBackgroud: 'oklch(0.3844 0.0153 295.85)',
       highlight: 'oklch(0.93 0.195089 103.2532 / 0.2)',
     },
   },
@@ -63,7 +65,7 @@ export const themeConfig: ThemeConfig = {
     // not fill in the locale code above again, can be an empty array []
     moreLocales: [], // ['de', 'en', 'es', 'fr', 'ja', 'ko', 'pl', 'pt', 'ru', 'zh', 'zh-tw']
     // post font style
-    fontStyle: 'sans', // sans | serif
+    fontStyle: 'serif', // sans | serif
     // post date format
     dateFormat: 'YYYY-MM-DD', // YYYY-MM-DD | MM-DD-YYYY | DD-MM-YYYY | MMM D YYYY | D MMM YYYY
     // enable table of contents

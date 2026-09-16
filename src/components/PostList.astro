@@ -29,11 +29,11 @@ const isHome = isHomePage(Astro.url.pathname)
         ]}
       >
         {/* post title */}
-        <h3 class="inline transition-colors hover:c-primary">
+        <h3 class="inline">
           <a
             class:list={[
-              'cjk:tracking-wide',
-              isHome ? 'lg:font-medium lg:text-4.5' : '',
+              'post-title-link cjk:tracking-wide',
+              isHome ? 'lg:font-bold lg:text-4.5' : '',
             ]}
             href={getPostPath(slug, lang)}
             transition:name={`post-${slug}${lang ? `-${lang}` : ''}`}

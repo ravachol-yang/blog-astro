@@ -24,12 +24,14 @@ export interface ThemeConfig {
       primary: string
       secondary: string
       background: string
+      secondaryBackgroud: string
       highlight: string
     }
     dark: {
       primary: string
       secondary: string
       background: string
+      secondaryBackgroud: string
       highlight: string
     }
   }

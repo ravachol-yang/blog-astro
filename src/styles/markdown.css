@@ -19,10 +19,10 @@
   --at-apply: 'mb-4 mt-1.5em scroll-mt-20 font-semibold';
 }
 .heti :where(h1) {
-  --at-apply: 'text-7 c-primary';
+  --at-apply: 'text-7 c-secondary';
 }
 .heti :where(h2) {
-  --at-apply: 'text-6 c-primary';
+  --at-apply: 'text-6 c-secondary';
 }
 .heti :where(h3) {
   --at-apply: 'text-5';
@@ -45,13 +45,13 @@
 
 /* Paragraphs */
 .heti :where(p:not(.no-heti):not(.no-heti *)) {
-  --at-apply: 'mb-4 text-pretty cjk:text-justify';
+  --at-apply: 'mb-5 leading-7 text-pretty cjk:text-justify';
 }
 
 /* Links */
 .heti :where(a:not(.no-heti):not(.no-heti *)) {
-  --at-apply: 'font-semibold tracking-normal underline underline-0.075em decoration-secondary/80 underline-offset-0.1em cjk:break-all';
-  --at-apply: 'transition-colors ease-out hover:(c-primary decoration-primary/80) lg:underline-0.1em';
+  --at-apply: 'font-semibold tracking-normal c-primary cjk:break-all';
+  --at-apply: 'transition-colors ease-out hover:(decoration-primary/80 underline underline-0.075em decoration-primary/80 underline-offset-0.1em) lg:underline-0.1em';
 }
 
 /* Images */
@@ -76,7 +76,7 @@
 
 /* Code Blocks */
 .heti :where(pre) {
-  --at-apply: 'overflow-auto uno-round-border px-4 py-3 bg-secondary/5!';
+  --at-apply: 'overflow-auto uno-round-border px-4 py-3 bg-secondaryBackgroud! shadow-[0_1px_3px_rgba(0,0,0,0.15)]';
   scrollbar-width: thin;
   scrollbar-color: oklch(var(--un-preset-theme-colors-secondary) / 0) transparent;
   transition: scrollbar-color 0.3s ease-out;
@@ -102,9 +102,10 @@ html.dark .heti pre span {
 
 /* Inline Code */
 .heti :where(code) {
-  --at-apply: 'uno-round-border bg-secondary/5 px-0.4em py-0.15em text-0.85em tracking-normal cjk:break-all';
+  --at-apply: 'uno-round-border bg-secondaryBackgroud px-0.4em py-0.15em text-0.85em tracking-normal cjk:break-all';
   counter-reset: line;
 }
+
 .heti code span.line {
   --at-apply: 'relative pl-8';
 }
