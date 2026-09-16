@@ -16,6 +16,25 @@ const { dateFormat: format } = themeConfig.global
 const isPost = isPostPage(Astro.url.pathname)
 const timeSpacingClass = isPost ? 'ml-1.75' : 'ml-1.5'
 
+function getTimePeriod(date: Date) {
+  const hour = Number(
+    new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Asia/Shanghai',
+      hour: 'numeric',
+      hour12: false,
+    }).format(date),
+  )
+
+  if (hour >= 0 && hour < 5) return '凌晨'
+  if (hour >= 5 && hour < 8) return '清晨'
+  if (hour >= 8 && hour < 11) return '上午'
+  if (hour >= 11 && hour < 13) return '中午'
+  if (hour >= 13 && hour < 16) return '下午'
+  if (hour >= 16 && hour < 19) return '傍晚'
+  if (hour >= 19 && hour < 22) return '晚上'
+  return '深夜'
+}
+
 function formatDate(date: Date, format: DateFormat) {
   if (format === 'YYYY-MM-DD') {
     return date.toISOString().split('T')[0]
@@ -62,6 +81,9 @@ function formatDate(date: Date, format: DateFormat) {
 <!-- published date -->
 <time datetime={date.toISOString().split('T')[0]}>
   {formatDate(date, format)}
+  <span class="ml-1">
+    · {getTimePeriod(date)}
+  </span>
 </time>
 
 <!-- updated date -->
@@ -71,6 +93,9 @@ function formatDate(date: Date, format: DateFormat) {
     class={timeSpacingClass}
   >
     updated {formatDate(updatedDate, format)}
+    <span class="ml-1">
+    · {getTimePeriod(updatedDate)}
+    </span>
   </time>
 )}
 

@@ -33,6 +33,10 @@ body::before {
   transform: translateX(-50%) scaleX(1);
 }
 
+.post-date {
+  --at-apply: 'c-secondary/75 font-italic'
+}
+
 /* Fix Flash Issue On iOS */
 body {
   backface-visibility: hidden;

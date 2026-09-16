@@ -53,7 +53,7 @@ const isHome = isHomePage(Astro.url.pathname)
 
         {/* mobile post time */}
         <div
-          class="py-0.8 text-3.5 font-time lg:hidden"
+          class="py-0.8 text-3.5 post-date lg:hidden"
           transition:name={`time-${slug}${lang ? `-${lang}` : ''}`}
           data-disable-theme-toggle-transition
         >
@@ -64,7 +64,7 @@ const isHome = isHomePage(Astro.url.pathname)
         </div>
 
         {/* desktop post time */}
-        <div class="hidden text-3.65 font-time lg:(ml-2.5 inline)">
+        <div class="hidden text-3.65 post-date lg:(ml-2.5 inline)">
           <PostDate
             date={post.data.published}
             minutes={post.remarkPluginFrontmatter.minutes}
