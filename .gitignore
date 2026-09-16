@@ -2,6 +2,7 @@
 dist/
 .output/
 .astro/
+src/assets/lqip-map.json
 
 # dependencies
 node_modules/
