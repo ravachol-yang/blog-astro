@@ -12,8 +12,6 @@ abbrlink: homelab-network-0
 published: 2025-11-15
 lang: zh
 ---
-> Homelabbing is just a kind of roleplaying, roleplaying as sysadmins.
-
 ## 前言
 去年给家里的 Redmi AX6S 刷了 OpenWrt，相比原厂系统灵活了很多，并且装上了 OpenClash，用默认配置就能给连上网络的所有设备提供透明的魔法上网体验，稳定使用一年多，因此在此期间搞了一堆二手零件，凑了一台电脑装上 Proxmox 虚拟机平台作为 Homelab。
 
