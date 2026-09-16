@@ -113,6 +113,13 @@ export default defineConfig({
         },
       },
     ],
+    css: {
+      lightningcss: {
+        drafts: {
+          scrollNavigationControls: true,
+        },
+      },
+    },
     build: {
       chunkSizeWarningLimit: 600,
     },
