@@ -11,7 +11,7 @@
 
 /* Customized Post Title */
 .heti .post-title {
-  --at-apply: 'mb-2 mt-0 text-8.5 font-bold lg:text-10';
+  --at-apply: 'mb-2 mt-0 text-8.5 font-bold lg:text-9 c-primary';
 }
 
 /* Headings */
@@ -76,7 +76,7 @@
 
 /* Code Blocks */
 .heti :where(pre) {
-  --at-apply: 'overflow-auto uno-round-border px-4 py-3 bg-secondaryBackgroud! shadow-[0_1px_3px_rgba(0,0,0,0.15)]';
+  --at-apply: 'overflow-auto uno-round-border px-4 py-3 bg-secondary/5!';
   scrollbar-width: thin;
   scrollbar-color: oklch(var(--un-preset-theme-colors-secondary) / 0) transparent;
   transition: scrollbar-color 0.3s ease-out;
@@ -102,7 +102,7 @@ html.dark .heti pre span {
 
 /* Inline Code */
 .heti :where(code) {
-  --at-apply: 'uno-round-border font-medium bg-secondaryBackgroud px-0.4em py-0.15em text-0.85em tracking-normal cjk:break-all';
+  --at-apply: 'uno-round-border font-medium bg-secondary/5 px-0.4em py-0.15em text-0.85em tracking-normal cjk:break-all';
   counter-reset: line;
 }
 

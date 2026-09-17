@@ -33,7 +33,7 @@ const isHome = isHomePage(Astro.url.pathname)
           <a
             class:list={[
               'post-title-link cjk:tracking-wide',
-              isHome ? 'font-bold text-5 lg:text-5.5' : '',
+              isHome ? 'font-semibold c-primary text-5 lg:text-5.5' : '',
             ]}
             href={getPostPath(slug, lang)}
             transition:name={`post-${slug}${lang ? `-${lang}` : ''}`}
