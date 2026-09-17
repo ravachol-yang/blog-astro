@@ -34,7 +34,7 @@ body::before {
 }
 
 .post-date {
-  --at-apply: 'c-secondary/75 font-italic'
+  --at-apply: 'c-secondary/75 font-time'
 }
 
 /* Fix Flash Issue On iOS */
@@ -83,7 +83,6 @@ h3:hover .heading-anchor-link svg:hover,
 h4:hover .heading-anchor-link svg:hover {
   --at-apply: 'op-80';
 }
-
 /* Image Zoom >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 .zoom-overlay {
   --at-apply: 'fixed left-0 top-0 z-999 hidden h-full w-full cursor-zoom-out bg-background/95 op-0 transition-opacity duration-300';

@@ -33,7 +33,7 @@ const isHome = isHomePage(Astro.url.pathname)
           <a
             class:list={[
               'post-title-link cjk:tracking-wide',
-              isHome ? 'lg:font-bold lg:text-4.5' : '',
+              isHome ? 'font-bold text-5 lg:text-5.5' : '',
             ]}
             href={getPostPath(slug, lang)}
             transition:name={`post-${slug}${lang ? `-${lang}` : ''}`}
@@ -74,7 +74,7 @@ const isHome = isHomePage(Astro.url.pathname)
         {/* desktop post description */}
         {isHome && (
           <div
-            class="heti hidden"
+            class="heti"
             lg="mt-2.25 block"
           >
             <p>{getPostDescription(post, 'list')}</p>
