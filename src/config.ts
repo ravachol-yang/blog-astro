@@ -42,7 +42,7 @@ export const themeConfig: ThemeConfig = {
     // },
     light: {
       primary: 'oklch(0.5104 0.1327 29.65)',
-      secondary: 'oklch(0.40 0.03 211.86)',
+      secondary: 'oklch(0.1 0 0)',
       background: 'oklch(0.997 0 0)',
       secondaryBackgroud: 'oklch(0.97 0.0123 91.52)',
       highlight: 'oklch(0.93 0.195089 103.2532 / 0.5)',

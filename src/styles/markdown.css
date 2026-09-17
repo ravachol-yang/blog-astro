@@ -16,7 +16,7 @@
 
 /* Headings */
 .heti :where(h1, h2, h3, h4, h5, h6) {
-  --at-apply: 'mb-4 mt-1.5em scroll-mt-20 font-semibold';
+  --at-apply: 'mb-4 mt-1.5em scroll-mt-20 font-bold';
 }
 .heti :where(h1) {
   --at-apply: 'text-8 c-secondary';
@@ -45,13 +45,13 @@
 
 /* Paragraphs */
 .heti :where(p:not(.no-heti):not(.no-heti *)) {
-  --at-apply: 'mb-5 leading-7 text-pretty cjk:text-justify lg:text-4.3 font-medium';
+  --at-apply: 'mb-5 leading-7 text-pretty cjk:text-justify lg:text-4.3';
 }
 
 /* Links */
 .heti :where(a:not(.no-heti):not(.no-heti *)) {
-  --at-apply: 'font-medium tracking-normal c-primary cjk:break-all';
-  --at-apply: 'transition-colors ease-out hover:(decoration-primary/80 underline underline-0.075em decoration-primary/80 underline-offset-0.1em) lg:underline-0.1em';
+  --at-apply: 'font-medium tracking-normal c-secondary/60 underline cjk:break-all';
+  --at-apply: 'transition-colors ease-out hover:(c-primary decoration-primary/80 underline underline-0.075em decoration-primary/80 underline-offset-0.1em) lg:underline-0.1em';
 }
 
 /* Images */
@@ -258,7 +258,7 @@ html.dark .heti :where(u) {
 
 /* Bold */
 .heti :where(b, strong) {
-  --at-apply: 'font-semibold';
+  --at-apply: 'font-bold mx-0.5';
 }
 
 /* Italic */
