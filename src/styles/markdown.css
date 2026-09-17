@@ -16,22 +16,22 @@
 
 /* Headings */
 .heti :where(h1, h2, h3, h4, h5, h6) {
-  --at-apply: 'mb-4 mt-1.5em scroll-mt-20 font-bold';
+  --at-apply: 'mb-4 mt-1.5em scroll-mt-20 font-semibold';
 }
 .heti :where(h1) {
   --at-apply: 'text-8 c-secondary';
 }
 .heti :where(h2) {
-  --at-apply: 'text-7 c-secondary';
+  --at-apply: 'text-6 lg:text-7 c-secondary';
 }
 .heti :where(h3) {
-  --at-apply: 'text-6';
+  --at-apply: 'text-5 lg:text-6';
 }
 .heti :where(h4) {
-  --at-apply: 'text-5';
+  --at-apply: 'text-4.5 lg:text-5';
 }
 .heti :where(h5) {
-  --at-apply: 'text-4.5';
+  --at-apply: 'text-4 lg:text-4.5';
 }
 .heti :where(h6) {
   --at-apply: 'font-normal';
@@ -45,12 +45,12 @@
 
 /* Paragraphs */
 .heti :where(p:not(.no-heti):not(.no-heti *)) {
-  --at-apply: 'mb-5 leading-7 text-pretty cjk:text-justify text-4.5';
+  --at-apply: 'mb-5 leading-7 text-pretty cjk:text-justify lg:text-4.3 font-medium';
 }
 
 /* Links */
 .heti :where(a:not(.no-heti):not(.no-heti *)) {
-  --at-apply: 'font-semibold tracking-normal c-primary cjk:break-all';
+  --at-apply: 'font-medium tracking-normal c-primary cjk:break-all';
   --at-apply: 'transition-colors ease-out hover:(decoration-primary/80 underline underline-0.075em decoration-primary/80 underline-offset-0.1em) lg:underline-0.1em';
 }
 
